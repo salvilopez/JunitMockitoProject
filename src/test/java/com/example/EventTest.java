@@ -66,7 +66,19 @@ class EventTest {
     }
 
 
+    @Test
+    @DisplayName("addAttendeessWithContaintAttendeess")
+    void addAttendeessWithContaintAttendeess() {
+        Event event= new Event();
+        Attendee attendee = new Attendee(1l,"salvi","salvi");
+        event.addAttendee(attendee);
+        List<Attendee> attendees= new ArrayList<>();
+        attendees.add(attendee);
+        event.setAttendees(attendees);
+        event.addAttendees(attendees);
 
+        assertTrue(event.getAttendees().size() ==1);
+    }
 
 
 

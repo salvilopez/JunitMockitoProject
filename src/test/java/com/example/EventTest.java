@@ -29,7 +29,16 @@ class EventTest {
         assertTrue(event.getAttendees().size() >0);
     }
 
+    @Test
+    @DisplayName("addAttendeeWithContaintAttende")
+    void addAttendeeWithContaintAttende() {
+        Event event= new Event();
+        Attendee attendee = new Attendee(1l,"salvi","salvi");
+        event.addAttendee(attendee);
 
+        event.addAttendee(attendee);
+        assertTrue(event.getAttendees().size() ==1);
+    }
 
 
 

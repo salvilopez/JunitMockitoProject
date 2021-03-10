@@ -80,31 +80,18 @@ class EventTest {
 
         assertTrue(event.getAttendees().size() ==1);
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
+    //*********************************  Remove attendee   ******************************************//
 
     @Test
-    void addAttendees() {
+    @DisplayName("removeAttendeeNull")
+    public void removeAttendeeNull() {
+        Event event= new Event();
+        event.removeAttendee(null);
+        assertTrue(event.getAttendees().isEmpty());
     }
 
-    @Test
-    void removeAttendee() {
-    }
 
-    @Test
-    void removeAttendees() {
-    }
+
 
     @Test
     void notifyAssistants() {

@@ -69,6 +69,7 @@ class EventTest {
     @Test
     @DisplayName("addAttendeessWithContaintAttendeess")
     void addAttendeessWithContaintAttendeess() {
+
         Event event= new Event();
         Attendee attendee = new Attendee(1l,"salvi","salvi");
         event.addAttendee(attendee);

@@ -19,6 +19,15 @@ class EventTest {
         event.addAttendee(null);
         assertTrue(event.getAttendees().size() ==0);
     }
+    @Test
+    @DisplayName("addAttendee")
+    void addAttendee() {
+        Event event= new Event();
+        Attendee attendee = new Attendee(1l,"salvi","salvi");
+        event.setAttendees(null);
+        event.addAttendee(attendee);
+        assertTrue(event.getAttendees().size() >0);
+    }
 
 
 

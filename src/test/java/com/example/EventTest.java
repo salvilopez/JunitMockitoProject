@@ -255,7 +255,7 @@ class EventTest {
         Event event= new Event(1l,"eventonuevo",EventType.BUSINESS,eventNotification);
         assertNotNull(event.getTitle());
     }
-
+    //*********************************   setTitle   ******************************************//
     @Test
     @DisplayName("setTitle")
     public void setTitle() {
@@ -265,28 +265,52 @@ class EventTest {
         event.setTitle("eventonuevo2");
         assertFalse(event.getTitle().equals(titleAnt));
     }
+    //*********************************   getType  ******************************************//
+
+    @Test
+    @DisplayName("getType")
+    public void getType() {
+        EventNotificationService eventNotification= new EventNotificationServiceImpl();
+        Event event= new Event(1l,"eventonuevo",EventType.BUSINESS,eventNotification);
+        assertNotNull(event.getType());
+    }
 
 
-//    public String getTitle() {
-//        return title;
-//    }
+    //*********************************   setType   ******************************************//
+
+    @Test
+    @DisplayName("setType")
+    public void setType() {
+        EventNotificationService eventNotification= new EventNotificationServiceImpl();
+        Event event= new Event(1l,"eventonuevo",EventType.BUSINESS,eventNotification);
+        EventType EvenType   =event.getType();
+        event.setType(EventType.TECH);
+        assertFalse(event.getType().equals(EvenType));
+    }
+
+    //*********************************   getSpeakers   ******************************************//
 //
-//    public void setTitle(String title) {
-//        this.title = title;
-//    }
-//
-//    public EventType getType() {
-//        return type;
-//    }
-//
-//    public void setType(EventType type) {
-//        this.type = type;
-//    }
-//
-//    public List<Speaker> getSpeakers() {
-//        return speakers;
-//    }
-//
+    @Test
+    @DisplayName("getSpeakers")
+    public void getSpeakers() {
+        EventNotificationService eventNotification= new EventNotificationServiceImpl();
+        Event event= new Event(1l,"eventonuevo",EventType.BUSINESS,eventNotification);
+        event.setSpeakers(new ArrayList<Speaker>());
+
+        assertNotNull(event.getSpeakers());
+    }
+    //*********************************   setSpeakers   ******************************************//
+
+    @Test
+    @DisplayName("setSpeakers")
+    public void setSpeakers() {
+        EventNotificationService eventNotification= new EventNotificationServiceImpl();
+        Event event= new Event(1l,"eventonuevo",EventType.BUSINESS,eventNotification);
+        event.setSpeakers(new ArrayList<Speaker>());
+        List<Speaker>speakersAct=event.getSpeakers();
+        event.setSpeakers(new ArrayList());
+        assertTrue(event.getSpeakers() instanceof ArrayList);
+    }
 //    public void setSpeakers(List<Speaker> speakers) {
 //        this.speakers = speakers;
 //    }

@@ -236,7 +236,7 @@ class EventTest {
         Event event= new Event(1l,"eventonuevo",EventType.BUSINESS,eventNotification);
         assertNotNull(event.getId());
     }
-
+    //*********************************   setId   ******************************************//
     @Test
     @DisplayName("setID")
     public void setID() {
@@ -246,14 +246,19 @@ class EventTest {
         event.setId(2l);
         assertTrue(event.getId()!=idAnt);
     }
+    //*********************************   getTitle   ******************************************//
+
+    @Test
+    @DisplayName("getTitle")
+    public void getTitle() {
+        EventNotificationService eventNotification= new EventNotificationServiceImpl();
+        Event event= new Event(1l,"eventonuevo",EventType.BUSINESS,eventNotification);
+        assertNotNull(event.getTitle());
+    }
 
 
 
-//
-//    public void setId(Long id) {
-//        this.id = id;
-//    }
-//
+
 //    public String getTitle() {
 //        return title;
 //    }
@@ -287,41 +292,4 @@ class EventTest {
 //    }
 
 
-
-
-    @Test
-    void setId() {
-    }
-
-    @Test
-    void getTitle() {
-    }
-
-    @Test
-    void setTitle() {
-    }
-
-    @Test
-    void getType() {
-    }
-
-    @Test
-    void setType() {
-    }
-
-    @Test
-    void getSpeakers() {
-    }
-
-    @Test
-    void setSpeakers() {
-    }
-
-    @Test
-    void getAttendees() {
-    }
-
-    @Test
-    void setAttendees() {
-    }
 }

@@ -216,6 +216,18 @@ public void notifyAssistants() {
         assertTrue(event.getSpeakers().size()==1);
     }
 
+    @Test
+    @DisplayName("removeSpeakerNull")
+    public void removeSpeakerNull() {
+        EventNotificationService eventNotification= new EventNotificationServiceImpl();
+        Event event= new Event(1l,"eventonuevo",EventType.BUSINESS,eventNotification);
+        Speaker speaker= new Speaker(1l,"Speaker","media");
+        Speaker speaker1= new Speaker(2l,"Speaker1","alta");
+        event.addSpeaker(speaker);
+        event.addSpeaker(speaker1);
+        event.removeSpeaker(null);
+        assertTrue(event.getSpeakers().size()==2);
+    }
 
 
 

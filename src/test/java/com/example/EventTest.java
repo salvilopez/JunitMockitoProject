@@ -89,7 +89,15 @@ class EventTest {
         event.removeAttendee(null);
         assertTrue(event.getAttendees().isEmpty());
     }
-
+    @DisplayName("removeAttendeeNullWithContaintNull")
+    public void removeAttendeeNullWithContaintNull() {
+        Event event= new Event();
+        event.setAttendees(null);
+        Attendee attendee = new Attendee(1l,"salvi","salvi");
+        event.setAttendees(null);
+        event.removeAttendee(attendee);
+        assertTrue(event.getAttendees() instanceof ArrayList && event.getAttendees().isEmpty());
+    }
 
 
 

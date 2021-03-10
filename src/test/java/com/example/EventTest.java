@@ -310,17 +310,21 @@ class EventTest {
         event.setSpeakers(new ArrayList());
         assertTrue(event.getSpeakers() instanceof ArrayList);
     }
-//    public void setSpeakers(List<Speaker> speakers) {
-//        this.speakers = speakers;
-//    }
-//
-//    public List<Attendee> getAttendees() {
-//        return attendees;
-//    }
-//
-//    public void setAttendees(List<Attendee> attendees) {
-//        this.attendees = attendees;
-//    }
+
+    //*********************************   getAttendees   ******************************************//
+
+    @Test
+    @DisplayName("getAttendees")
+    public void getAttendees() {
+        EventNotificationService eventNotification= new EventNotificationServiceImpl();
+        Event event= new Event(1l,"eventonuevo",EventType.BUSINESS,eventNotification);
+        event.setAttendees(new ArrayList<Attendee>());
+        assertNotNull(event.getAttendees());
+    }
+
+
+
+
 
 
 }

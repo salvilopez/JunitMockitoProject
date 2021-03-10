@@ -256,7 +256,15 @@ class EventTest {
         assertNotNull(event.getTitle());
     }
 
-
+    @Test
+    @DisplayName("setTitle")
+    public void setTitle() {
+        EventNotificationService eventNotification= new EventNotificationServiceImpl();
+        Event event= new Event(1l,"eventonuevo",EventType.BUSINESS,eventNotification);
+        String titleAnt=event.getTitle();
+        event.setTitle("eventonuevo2");
+        assertFalse(event.getTitle().equals(titleAnt));
+    }
 
 
 //    public String getTitle() {

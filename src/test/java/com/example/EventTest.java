@@ -12,11 +12,13 @@ class EventTest {
     //******************************************  Add attende   ***************************************************//
 
 
-
-
-
-
-
+    @Test
+    @DisplayName("addAttendeeNull")
+    void addAttendeeNull() {
+        Event event= new Event();
+        event.addAttendee(null);
+        assertTrue(event.getAttendees().size() ==0);
+    }
 
 
 

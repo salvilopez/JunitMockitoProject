@@ -296,7 +296,6 @@ class EventTest {
         EventNotificationService eventNotification= new EventNotificationServiceImpl();
         Event event= new Event(1l,"eventonuevo",EventType.BUSINESS,eventNotification);
         event.setSpeakers(new ArrayList<Speaker>());
-
         assertNotNull(event.getSpeakers());
     }
     //*********************************   setSpeakers   ******************************************//

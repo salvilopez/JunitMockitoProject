@@ -3,13 +3,16 @@ package com.example;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class EventTest {
 
 
 
-    //******************************************  Add attende   ***************************************************//
+    //****************************************  Add attende   ***************************************//
 
 
     @Test
@@ -39,6 +42,30 @@ class EventTest {
         event.addAttendee(attendee);
         assertTrue(event.getAttendees().size() ==1);
     }
+
+    //*********************************  Add attendeess   ******************************************//
+
+    @Test
+    @DisplayName("addAttendeessNull")
+    void addAttendeessNull() {
+        Event event= new Event();
+        event.addAttendees(null);
+        assertTrue(event.getAttendees().size() ==0);
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -166,28 +166,50 @@ class EventTest {
 @DisplayName("notifyAssistants")
 public void notifyAssistants() {
         EventNotificationService eventNotification= new EventNotificationServiceImpl();
-    Event event= new Event(1l,"eventonuevo",EventType.BUSINESS,eventNotification);
-    Attendee attendee1 = new Attendee(1l,"salvi","salvi");
-    Attendee attendee2 = new Attendee(2l,"pepe","salvi");
-    List<Attendee> attendees= new ArrayList<>();
-    List<Notification>notifications= new ArrayList<>();
-    attendee1.setNotifications(notifications);
-    attendees.add(attendee1);
-    attendees.add(attendee2);
-    event.setAttendees(attendees);
-    event.notifyAssistants();
-    assertTrue(event.getAttendees().get(0).getNotifications().get(0).getMessage().equals(MSG_ANNOUNCE));
+        Event event= new Event(1l,"eventonuevo",EventType.BUSINESS,eventNotification);
+        Attendee attendee1 = new Attendee(1l,"salvi","salvi");
+        Attendee attendee2 = new Attendee(2l,"pepe","salvi");
+        List<Attendee> attendees= new ArrayList<>();
+        List<Notification>notifications= new ArrayList<>();
+        attendee1.setNotifications(notifications);
+        attendees.add(attendee1);
+        attendees.add(attendee2);
+        event.setAttendees(attendees);
+        event.notifyAssistants();
+        assertTrue(event.getAttendees().get(0).getNotifications().get(0).getMessage().equals(MSG_ANNOUNCE));
 
 }
 
     //*********************************   addSpeaker   ******************************************//
-    @Test
-    void addSpeaker() {
-    }
 
     @Test
-    void removeSpeaker() {
+    @DisplayName("addSpeaker")
+    public void addSpeaker() {
+        EventNotificationService eventNotification= new EventNotificationServiceImpl();
+        Event event= new Event(1l,"eventonuevo",EventType.BUSINESS,eventNotification);
+        Speaker speaker= new Speaker(1l,"Speaker1","alta");
+        event.addSpeaker(speaker);
+        assertNotNull(event.getSpeakers().get(0));
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     @Test
     void getId() {

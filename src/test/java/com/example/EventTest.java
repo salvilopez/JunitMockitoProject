@@ -192,7 +192,14 @@ public void notifyAssistants() {
         assertNotNull(event.getSpeakers().get(0));
     }
 
-
+    @Test
+    @DisplayName("addSpeakerNull")
+    public void addSpeakerNull() {
+        EventNotificationService eventNotification= new EventNotificationServiceImpl();
+        Event event= new Event(1l,"eventonuevo",EventType.BUSINESS,eventNotification);
+        event.addSpeaker(null);
+        assertTrue(event.getSpeakers().isEmpty());
+    }
 
 
 

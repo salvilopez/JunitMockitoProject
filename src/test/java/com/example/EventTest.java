@@ -228,7 +228,7 @@ class EventTest {
         event.removeSpeaker(null);
         assertTrue(event.getSpeakers().size()==2);
     }
-
+    //*********************************   getId   ******************************************//
     @Test
     @DisplayName("getID")
     public void getId() {
@@ -237,14 +237,18 @@ class EventTest {
         assertNotNull(event.getId());
     }
 
+    @Test
+    @DisplayName("setID")
+    public void setID() {
+        EventNotificationService eventNotification= new EventNotificationServiceImpl();
+        Event event= new Event(1l,"eventonuevo",EventType.BUSINESS,eventNotification);
+        Long idAnt=event.getId();
+        event.setId(2l);
+        assertTrue(event.getId()!=idAnt);
+    }
 
 
 
-
-//
-//    public Long getId() {
-//        return id;
-//    }
 //
 //    public void setId(Long id) {
 //        this.id = id;

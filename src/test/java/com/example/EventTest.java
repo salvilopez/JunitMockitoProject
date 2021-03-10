@@ -112,7 +112,15 @@ class EventTest {
         assertTrue(event.getAttendees().size()==1);
     }
 
+    //*********************************  Remove attendeess   ******************************************//
 
+    @Test
+    @DisplayName("removeAttendeessNull")
+    public void removeAttendeessNull() {
+        Event event= new Event();
+        event.removeAttendees(null);
+        assertTrue(event.getAttendees().isEmpty());
+    }
 
 
 

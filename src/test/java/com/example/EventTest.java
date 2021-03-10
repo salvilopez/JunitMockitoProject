@@ -323,6 +323,18 @@ class EventTest {
     }
 
 
+    //*********************************   setAttendees   ******************************************//
+
+    @Test
+    @DisplayName("setAttendees")
+    public void setAttendees() {
+        EventNotificationService eventNotification= new EventNotificationServiceImpl();
+        Event event= new Event(1l,"eventonuevo",EventType.BUSINESS,eventNotification);
+        event.setAttendees(new ArrayList<Attendee>());
+        List<Attendee>attendesAct=event.getAttendees();
+        event.setAttendees(attendesAct);
+        assertTrue(event.getAttendees() instanceof ArrayList);
+    }
 
 
 

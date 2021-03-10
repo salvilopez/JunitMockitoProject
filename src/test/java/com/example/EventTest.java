@@ -16,6 +16,32 @@ class EventTest {
     private static final String MSG_CONFIRM = "Dear Attendee, your subscription to the event has been confirmed successfully.";
 
 
+
+
+    //****************************************  eventParamNotNull   ***************************************//
+
+
+    @Test
+    @DisplayName("eventParamNotNull")
+    void eventParamNotNull() {
+        EventNotificationService eventNotification= new EventNotificationServiceImpl();
+        Event event= new Event(1l,"eventonuevo",EventType.BUSINESS,eventNotification);
+        assertNotNull(event);
+    }
+
+
+
+    //****************************************   Event()   ***************************************//
+
+    @Test
+    @DisplayName("eventNotNull")
+    void eventNotNull() {
+        Event event= new Event();
+        assertNotNull(event);
+    }
+
+
+
     //****************************************  Add attende   ***************************************//
 
 
@@ -335,8 +361,6 @@ class EventTest {
         event.setAttendees(attendesAct);
         assertTrue(event.getAttendees() instanceof ArrayList);
     }
-
-
 
 
 }

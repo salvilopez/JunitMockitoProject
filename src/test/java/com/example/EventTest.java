@@ -1,5 +1,7 @@
 package com.example;
 
+import com.example.service.EventNotificationService;
+import com.example.service.EventNotificationServiceImpl;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -10,6 +12,8 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class EventTest {
 
+    private static final String MSG_ANNOUNCE = "The next big event is coming!";
+    private static final String MSG_CONFIRM = "Dear Attendee, your subscription to the event has been confirmed successfully.";
 
 
     //****************************************  Add attende   ***************************************//
@@ -89,6 +93,7 @@ class EventTest {
         event.removeAttendee(null);
         assertTrue(event.getAttendees().isEmpty());
     }
+    @Test
     @DisplayName("removeAttendeeNullWithContaintNull")
     public void removeAttendeeNullWithContaintNull() {
         Event event= new Event();
@@ -98,6 +103,7 @@ class EventTest {
         event.removeAttendee(attendee);
         assertTrue(event.getAttendees() instanceof ArrayList && event.getAttendees().isEmpty());
     }
+    @Test
     @DisplayName("removeAttendeeNullWithContaint")
     public void removeAttendeeNullWithContaint() {
         Event event= new Event();
@@ -153,20 +159,28 @@ class EventTest {
         assertTrue(event.getAttendees().isEmpty());
     }
 
+    //*********************************   notifyAssistants   ******************************************//
 
 
+@Test
+@DisplayName("notifyAssistants")
+public void notifyAssistants() {
+        EventNotificationService eventNotification= new EventNotificationServiceImpl();
+    Event event= new Event(1l,"eventonuevo",EventType.BUSINESS,eventNotification);
+    Attendee attendee1 = new Attendee(1l,"salvi","salvi");
+    Attendee attendee2 = new Attendee(2l,"pepe","salvi");
+    List<Attendee> attendees= new ArrayList<>();
+    List<Notification>notifications= new ArrayList<>();
+    attendee1.setNotifications(notifications);
+    attendees.add(attendee1);
+    attendees.add(attendee2);
+    event.setAttendees(attendees);
+    event.notifyAssistants();
+    assertTrue(event.getAttendees().get(0).getNotifications().get(0).getMessage().equals(MSG_ANNOUNCE));
 
+}
 
-
-
-
-
-
-
-    @Test
-    void notifyAssistants() {
-    }
-
+    //*********************************   addSpeaker   ******************************************//
     @Test
     void addSpeaker() {
     }

@@ -122,7 +122,21 @@ class EventTest {
         assertTrue(event.getAttendees().isEmpty());
     }
 
+    @Test
+    @DisplayName("removeAttendeessNullWithContaintNull")
+    public void removeAttendeessNullWithContaintNull() {
+        Event event= new Event();
+        event.setAttendees(null);
+        Attendee attendee = new Attendee(1l,"salvi","salvi");
 
+        Attendee attendee2 = new Attendee(2l,"pepe","salvi");
+        List<Attendee> attendees= new ArrayList<>();
+        attendees.add(attendee2);
+        attendees.add(attendee);
+        event.setAttendees(null);
+        event.removeAttendees(attendees);
+        assertTrue(event.getAttendees() instanceof ArrayList && event.getAttendees().isEmpty());
+    }
 
 
 

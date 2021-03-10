@@ -162,9 +162,9 @@ class EventTest {
     //*********************************   notifyAssistants   ******************************************//
 
 
-@Test
-@DisplayName("notifyAssistants")
-public void notifyAssistants() {
+    @Test
+    @DisplayName("notifyAssistants")
+    public void notifyAssistants() {
         EventNotificationService eventNotification= new EventNotificationServiceImpl();
         Event event= new Event(1l,"eventonuevo",EventType.BUSINESS,eventNotification);
         Attendee attendee1 = new Attendee(1l,"salvi","salvi");
@@ -178,7 +178,7 @@ public void notifyAssistants() {
         event.notifyAssistants();
         assertTrue(event.getAttendees().get(0).getNotifications().get(0).getMessage().equals(MSG_ANNOUNCE));
 
-}
+    }
 
     //*********************************   addSpeaker   ******************************************//
 
@@ -229,23 +229,61 @@ public void notifyAssistants() {
         assertTrue(event.getSpeakers().size()==2);
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     @Test
-    void getId() {
+    @DisplayName("getID")
+    public void getId() {
+        EventNotificationService eventNotification= new EventNotificationServiceImpl();
+        Event event= new Event(1l,"eventonuevo",EventType.BUSINESS,eventNotification);
+        assertNotNull(event.getId());
     }
+
+
+
+
+
+//
+//    public Long getId() {
+//        return id;
+//    }
+//
+//    public void setId(Long id) {
+//        this.id = id;
+//    }
+//
+//    public String getTitle() {
+//        return title;
+//    }
+//
+//    public void setTitle(String title) {
+//        this.title = title;
+//    }
+//
+//    public EventType getType() {
+//        return type;
+//    }
+//
+//    public void setType(EventType type) {
+//        this.type = type;
+//    }
+//
+//    public List<Speaker> getSpeakers() {
+//        return speakers;
+//    }
+//
+//    public void setSpeakers(List<Speaker> speakers) {
+//        this.speakers = speakers;
+//    }
+//
+//    public List<Attendee> getAttendees() {
+//        return attendees;
+//    }
+//
+//    public void setAttendees(List<Attendee> attendees) {
+//        this.attendees = attendees;
+//    }
+
+
+
 
     @Test
     void setId() {

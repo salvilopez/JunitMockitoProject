@@ -53,6 +53,27 @@ class EventNotificationTest {
         assertEquals(MSG_ANNOUNCE,event.getAttendees().get(0).getNotifications().get(0).getMessage());
 
     }
+    //****************************            confirmAttendance()                ***************************************/
+    @Test
+    @DisplayName("Test Confirm Anouncement")
+    public void testConfirmAnouncement() {
+        event = new Event();
+        event.setId(1l);
+        event.setTitle("eventoPrueba");
 
+        Attendee attendee= new Attendee(1l,"salvi","salvi@gmail.com");
+        List<Attendee> attendees= new ArrayList<Attendee>();
+        List<Notification> notifications= new ArrayList<Notification>();
+        attendee.setNotifications(notifications);
+        attendees.add(attendee);
+        event.setAttendees(attendees);
+
+
+        eventService.confirmAttendance(event,attendee);
+
+
+        assertEquals(MSG_CONFIRM,event.getAttendees().get(0).getNotifications().get(0).getMessage());
+
+    }
 
 }

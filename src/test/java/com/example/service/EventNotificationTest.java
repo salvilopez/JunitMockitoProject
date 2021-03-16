@@ -48,15 +48,6 @@ class EventNotificationTest {
 
 
 
-
-
-
-
-
-
-
-
-
     }
     @Test
     @DisplayName("Test announcement Mock")

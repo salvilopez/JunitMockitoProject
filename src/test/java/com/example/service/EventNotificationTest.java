@@ -30,26 +30,24 @@ class EventNotificationTest {
     private static final String MSG_CONFIRM = "Dear Attendee, your subscription to the event has been confirmed successfully.";
 
 
-    @InjectMocks
+    @Mock
     EventNotificationServiceImpl eventService;
 
 
 
 
-    @Mock
+    @InjectMocks
      Event event;
+
     //****************************            Mock                *********************************************/
 
     @Test
     @DisplayName("Test announcement Mock")
-    @Disabled
     public void testAnouncementMock() {
         event = new Event(1l,"eventopruebabussines",EventType.BUSINESS,eventService);
         ArgumentCaptor<Event>argumentCaptor=ArgumentCaptor.forClass(Event.class);
         eventService.announce(event);
-
         verify(eventService,times(1)).announce(argumentCaptor.capture());
-
 
         assertEquals(event,argumentCaptor.getValue());
 

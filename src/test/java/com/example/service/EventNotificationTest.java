@@ -30,25 +30,16 @@ class EventNotificationTest {
     private static final String MSG_CONFIRM = "Dear Attendee, your subscription to the event has been confirmed successfully.";
 
 
-    @Mock
+    @InjectMocks
     EventNotificationServiceImpl eventService;
 
 
 
-    @InjectMocks
-    Event event;
 
+    @Mock
+     Event event;
     //****************************            Mock                *********************************************/
 
-    @Test
-    @DisplayName("Test testAnouncementMockuno ")
-    public void testAnouncementMockuno() {
-
-
-
-
-
-    }
     @Test
     @DisplayName("Test announcement Mock")
     @Disabled
@@ -63,6 +54,9 @@ class EventNotificationTest {
         assertEquals(event,argumentCaptor.getValue());
 
     }
+
+
+
     //****************************            announce()                *********************************************/
 
 
